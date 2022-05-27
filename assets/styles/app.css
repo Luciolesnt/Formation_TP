@@ -1,0 +1,39 @@
+body {
+    /* 62.5% of 16px browser font size is 10px */
+ font-size: 62.5%;
+ background-color: #2b3035;
+ color: white;
+}
+
+/* USAGE */
+/* .some-element {
+ 1.2 * 10px = 12px
+ font-size: 1.2rem;
+} */
+
+.content {
+   min-height: calc(100vh - 15rem);
+   padding: 1rem;
+}
+
+footer a.nav-link {
+    color: white;
+}
+
+.content table {
+    color: white;
+}
+
+.content a {
+    color: white;
+}
+
+.content .btn {
+    color : #99aa38;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.content .btn:hover {
+    color : #e1e289
+}

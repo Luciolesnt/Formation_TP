@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Organisme index{% endblock %}
+
+{% block body %}
+    <h1>Organisme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Email_contact</th>
+                <th>Numero_tel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for organisme in organismes %}
+            <tr>
+                <td>{{ organisme.id }}</td>
+                <td>{{ organisme.nom }}</td>
+                <td>{{ organisme.adresse }}</td>
+                <td>{{ organisme.emailContact }}</td>
+                <td>{{ organisme.numeroTel }}</td>
+                <td>
+                    <a href="{{ path('app_organisme_show', {'id': organisme.id}) }}">afficher</a>
+                    <a href="{{ path('app_organisme_edit', {'id': organisme.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_organisme_new') }}">Créer un nouveau</a>
+{% endblock %}

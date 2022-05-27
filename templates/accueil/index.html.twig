@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Session en cours pendant cette semaine</h1>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Promotion</th>
+                <th>Session</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in sessions %}
+        {% if date(session.dateDebut) < date() and date(session.dateFin) > date() %}
+              <tr>
+                <td>{{ session.promotion }}</td>
+                <td>{{ session.nom }}</td>
+            </tr>
+        {% endif %}
+        {% else %}
+            <div>Aucune session en cours</div>
+        {% endfor %}   
+        </tbody>
+    </table>
+    </section>
+{% endblock %}

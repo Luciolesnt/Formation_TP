@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Salle{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle Salle</h1>
+
+    {{ include('salle/_form.html.twig') }}
+
+    <a href="{{ path('app_salle_index') }}">Retourner à la liste</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Promotion index{% endblock %}
+
+{% block body %}
+    <h1>Promotion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promotion in promotions %}
+            <tr>
+                <td>{{ promotion.id }}</td>
+                <td>{{ promotion.nom }}</td>
+                <td>
+                    <a href="{{ path('app_promotion_show', {'id': promotion.id}) }}">afficher</a>
+                    <a href="{{ path('app_promotion_edit', {'id': promotion.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_promotion_new') }}">Créer un nouveau</a>
+{% endblock %}
